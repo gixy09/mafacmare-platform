@@ -11,6 +11,7 @@ export type DirectionCategory =
 export type MentorApprovalStatus = "in_asteptare" | "aprobat" | "respins";
 export type QuestionModerationStatus = "noua" | "in_moderare" | "publicata" | "privata";
 export type AnswerModerationStatus = "draft" | "in_moderare" | "publicat" | "privat";
+export type StatusPillStatus = MentorApprovalStatus | QuestionModerationStatus | AnswerModerationStatus;
 
 export type MythRealityPair = {
   myth: string;
