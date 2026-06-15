@@ -1,6 +1,8 @@
 import { LinkButton } from "@/components/ui/button";
 import { InfoCard } from "@/components/ui/info-card";
+import { PilotNote } from "@/components/ui/pilot-note";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { pilotPlatformNote } from "@/data/platform";
 import { hasCompleteAnswers, resolveAnswers, scoreQuestionnaire } from "@/lib/questionnaire";
 
 type ResultsPageProps = {
@@ -27,6 +29,10 @@ export default function ResultsPage({ searchParams }: ResultsPageProps) {
             Folosește acest rezultat ca să îți faci întrebările mai bune. Compară direcțiile, vorbește cu oameni și vezi ce merită aflat mai departe.
           </p>
         </InfoCard>
+
+        <div className="mt-6">
+          <PilotNote copy={pilotPlatformNote} />
+        </div>
 
         <div className="mt-8 space-y-6">
           {results.map((result, index) => (
@@ -59,6 +65,18 @@ export default function ResultsPage({ searchParams }: ResultsPageProps) {
                       <li key={item}>- {item}</li>
                     ))}
                   </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-lg bg-section p-4">
+                <h3 className="text-lg font-bold text-slate-950">Mituri vs realitate</h3>
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
+                  {result.direction.mythsVsReality.map((item) => (
+                    <div key={item.myth} className="rounded-lg bg-white p-4">
+                      <p className="text-sm font-semibold text-rose-700">Mit: {item.myth}</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">Realitate: {item.reality}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
 

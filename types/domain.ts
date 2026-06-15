@@ -8,6 +8,15 @@ export type DirectionCategory =
   | "sociology"
   | "digital";
 
+export type MentorApprovalStatus = "in_asteptare" | "aprobat" | "respins";
+export type QuestionModerationStatus = "noua" | "in_moderare" | "publicata" | "privata";
+export type AnswerModerationStatus = "draft" | "in_moderare" | "publicat" | "privat";
+
+export type MythRealityPair = {
+  myth: string;
+  reality: string;
+};
+
 export type Direction = {
   slug: string;
   title: string;
@@ -22,6 +31,7 @@ export type Direction = {
   mayInvolve: string[];
   learnMore: string[];
   goodQuestions: string[];
+  mythsVsReality: MythRealityPair[];
   categories: DirectionCategory[];
 };
 
@@ -47,8 +57,75 @@ export type ScoredDirection = {
   reasons: string[];
 };
 
+export type SavedQuestionnaireResult = {
+  completedAt: string;
+  summary: string;
+  topDirections: ScoredDirection[];
+};
+
+export type BaseProfile = {
+  id: string;
+  fullName: string;
+  email: string;
+  role: UserRole;
+};
+
+export type StudentProfile = BaseProfile & {
+  role: "elev";
+  classLevel: string;
+  school: string;
+  savedResult: SavedQuestionnaireResult;
+  submittedQuestionIds: string[];
+  receivedAnswerIds: string[];
+};
+
+export type StudentMentorProfile = BaseProfile & {
+  role: "student-mentor";
+  university: string;
+  faculty: string;
+  program: string;
+  yearOfStudy: string;
+  approvalStatus: MentorApprovalStatus;
+  publicLabel: string;
+  badges: string[];
+  bio: string;
+  topics: string[];
+};
+
+export type StudentQuestion = {
+  id: string;
+  studentId: string;
+  title: string;
+  body: string;
+  topicTags: string[];
+  relatedDirectionSlugs: string[];
+  targetUniversity?: string;
+  targetFaculty?: string;
+  targetProgram?: string;
+  createdAt: string;
+  status: QuestionModerationStatus;
+  assignedMentorIds: string[];
+};
+
+export type MentorAnswer = {
+  id: string;
+  questionId: string;
+  mentorId: string;
+  content: string;
+  status: AnswerModerationStatus;
+  createdAt: string;
+  updatedAt: string;
+  moderationNote?: string;
+};
+
 export type DashboardStat = {
   label: string;
   value: string;
   description: string;
+};
+
+export type AnonymizedInsight = {
+  label: string;
+  value: string;
+  note: string;
 };
