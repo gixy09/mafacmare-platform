@@ -1,4 +1,4 @@
-import { ArrowRight, MessageCircle, Sparkles, Users } from "lucide-react";
+import { ArrowRight, Compass, MessageCircle, Sparkles, Users } from "lucide-react";
 import { DirectionCard } from "@/components/direction-card";
 import { LinkButton } from "@/components/ui/button";
 import { InfoCard } from "@/components/ui/info-card";
@@ -6,15 +6,17 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { directions } from "@/data/directions";
 
 const painPoints = [
-  "Prea multe facultăți, prea puțin context real.",
-  "Presiune de la familie, colegi și propriile așteptări.",
-  "Diferența dintre ce sună bine și ce ți se potrivește zi de zi."
+  "Sunt prea multe opțiuni și prea puțin context real despre ce înseamnă fiecare.",
+  "Apare presiunea din partea părinților, profesorilor sau colegilor care par mai siguri.",
+  "Poate apărea frica de a alege greșit și de a pierde timp.",
+  "Multe denumiri de facultăți sună abstract și nu spun clar ce vei face acolo.",
+  "E ușor să te compari cu alții care par că știu deja exact ce vor."
 ];
 
 const steps = [
-  "Completezi chestionarul în 8–10 minute.",
-  "Primim indicii despre interese, ritm și tipul de probleme care te atrag.",
-  "Vezi top 3 direcții de studiu și următorii pași de explorare."
+  "Completezi un chestionar scris pe limba elevilor, cu exemple din liceu și viața de zi cu zi.",
+  "Primești un rezultat orientativ cu 3 direcții de explorat, nu un verdict despre viitorul tău.",
+  "Poți merge mai departe cu întrebări bune, direcții SNSPA de explorat și conversații utile."
 ];
 
 export default function HomePage() {
@@ -47,8 +49,8 @@ export default function HomePage() {
                   <Sparkles aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-950">Rezultat exemplu</p>
-                  <p className="text-sm text-slate-600">Top 3 direcții de explorat</p>
+                  <p className="font-bold text-slate-950">Rezultat orientativ</p>
+                  <p className="text-sm text-slate-600">3 direcții de explorat mai departe</p>
                 </div>
               </div>
               <div className="mt-6 space-y-3">
@@ -69,13 +71,16 @@ export default function HomePage() {
       <Section muted>
         <SectionHeader
           title="E normal să nu știi încă."
-          description="Alegerea facultății nu ar trebui să fie o decizie luată din panică. Platforma te ajută să transformi confuzia în întrebări mai bune și pași mici."
+          description="Poate pare că toată lumea așteaptă de la tine un răspuns clar: ce facultate alegi, ce vrei să devii, ce faci după liceu. Dar nu trebuie să ai tot planul acum. MaFacMare.ro te ajută să începi cu pași mai mici: să vezi ce te atrage, ce ți se potrivește și ce direcții merită explorate mai departe. Nu îți alegem viitorul. Te ajutăm să-l înțelegi mai bine."
         />
       </Section>
 
       <Section>
-        <SectionHeader title="De ce e greu să alegi facultatea?" />
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <SectionHeader
+          title="De ce e greu să alegi facultatea?"
+          description="Nu pentru că nu te interesează. Ci pentru că alegerea vine cu prea multe întrebări deodată."
+        />
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           {painPoints.map((point) => (
             <InfoCard key={point}>
               <p className="text-base font-semibold leading-7 text-slate-800">{point}</p>
@@ -85,7 +90,7 @@ export default function HomePage() {
       </Section>
 
       <Section muted>
-        <SectionHeader title="Cum funcționează" description="Un parcurs simplu, gândit pentru elevi care au nevoie de claritate, nu de verdicte." />
+        <SectionHeader title="Cum funcționează" description="Un parcurs simplu, gândit pentru elevi care caută claritate, nu etichete fixe." />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {steps.map((step, index) => (
             <InfoCard key={step}>
@@ -97,8 +102,8 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <SectionHeader title="Direcții populare" description="Începe cu câteva zone largi și mergi mai adânc doar acolo unde apare interes real." />
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <SectionHeader title="Direcții de explorat" description="Nu pornim de la facultatea exactă, ci de la zone mai largi care pot să ți se potrivească." />
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {directions.map((direction) => (
             <DirectionCard key={direction.slug} direction={direction} />
           ))}
@@ -106,22 +111,50 @@ export default function HomePage() {
       </Section>
 
       <Section muted>
-        <div className="grid gap-4 md:grid-cols-2">
+        <SectionHeader
+          title="Discută cu cineva"
+          description="Nu toate întrebările au nevoie de același tip de răspuns. Uneori ai nevoie să înțelegi mai bine o facultate. Alteori ai nevoie să te înțelegi mai bine pe tine."
+        />
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
           <InfoCard>
-            <Users className="text-teal" aria-hidden="true" />
-            <h2 className="mt-4 text-2xl font-bold text-slate-950">Discută cu cineva</h2>
-            <p className="mt-3 text-slate-600">Cere o conversație cu cineva dintr-o facultate sau cu un consilier vocațional.</p>
+            <Compass className="text-accent" aria-hidden="true" />
+            <h2 className="mt-4 text-2xl font-bold text-slate-950">Vorbește cu cineva de la facultate</h2>
+            <p className="mt-3 text-slate-600">
+              Pentru întrebări despre programe, cursuri, admitere, proiecte, viața de student și atmosferă.
+            </p>
             <LinkButton href="/discuta-cu-cineva" className="mt-6">
-              Cere o conversație
+              Vezi opțiunile
             </LinkButton>
           </InfoCard>
           <InfoCard>
+            <Users className="text-teal" aria-hidden="true" />
+            <h2 className="mt-4 text-2xl font-bold text-slate-950">Vorbește cu un consilier vocațional</h2>
+            <p className="mt-3 text-slate-600">
+              Pentru întrebări mai personale: ce mi se potrivește, presiune, indecizie, teamă de a alege greșit sau de a alege între mai multe variante.
+            </p>
+            <LinkButton href="/discuta-cu-cineva" className="mt-6" variant="secondary">
+              Cere o conversație
+            </LinkButton>
+          </InfoCard>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid gap-4 md:grid-cols-2">
+          <InfoCard>
             <MessageCircle className="text-accent" aria-hidden="true" />
             <h2 className="mt-4 text-2xl font-bold text-slate-950">Întreabă un student</h2>
-            <p className="mt-3 text-slate-600">Trimite o întrebare către studenți mentori despre cursuri, ritm, admitere și viața reală la facultate.</p>
-            <LinkButton href="/intreaba-un-student" className="mt-6" variant="secondary">
+            <p className="mt-3 text-slate-600">Trimite o întrebare despre cursuri, ritm, admitere sau cum arată viața reală la facultate.</p>
+            <LinkButton href="/intreaba-un-student" className="mt-6">
               Pune o întrebare
             </LinkButton>
+          </InfoCard>
+          <InfoCard>
+            <Sparkles className="text-yellow" aria-hidden="true" />
+            <h2 className="mt-4 text-2xl font-bold text-slate-950">Rezultat orientativ, nu verdict</h2>
+            <p className="mt-3 text-slate-600">
+              Rezultatul tău nu este o decizie. Este un punct de pornire pentru conversații, întrebări bune și explorare reală.
+            </p>
           </InfoCard>
         </div>
       </Section>
