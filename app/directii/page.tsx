@@ -7,11 +7,11 @@ export default function DirectionsPage() {
     <main>
       <Section>
         <SectionHeader
-          eyebrow="Directii"
-          title="Exploreaza directii de studiu fara presiunea unei alegeri finale"
-          description="Fiecare directie este o familie de domenii. Incepe larg, apoi restrange pe baza interesului si a discutiilor reale."
+          eyebrow="Direcții"
+          title="Explorează direcții de studiu fără presiunea unei alegeri finale"
+          description="Fiecare direcție este o zonă largă de explorare. Începe cu ce te atrage și mergi mai adânc pe parcurs."
         />
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {directions.map((direction) => (
             <DirectionCard key={direction.slug} direction={direction} />
           ))}

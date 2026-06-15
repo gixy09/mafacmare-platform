@@ -15,7 +15,7 @@ export function DirectionCard({ direction }: { direction: Direction }) {
   return (
     <InfoCard className="flex h-full flex-col">
       <span className={cn("mb-5 w-fit rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide", accents[direction.accent])}>
-        Directie
+        Direcție
       </span>
       <h3 className="text-xl font-bold text-slate-950">{direction.title}</h3>
       <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">{direction.tagline}</p>
