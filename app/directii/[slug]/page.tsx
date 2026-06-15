@@ -45,6 +45,19 @@ export default function DirectionDetailPage({ params }: { params: { slug: string
             </ul>
           </InfoCard>
         </div>
+
+        <div className="mt-8 rounded-lg bg-section p-5">
+          <h2 className="text-xl font-bold text-slate-950">Mituri vs realitate</h2>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {direction.mythsVsReality.map((item) => (
+              <div key={item.myth} className="rounded-lg bg-white p-4">
+                <p className="text-sm font-semibold text-rose-700">Mit: {item.myth}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-600">Realitate: {item.reality}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           <InfoCard>
             <h2 className="text-lg font-bold text-slate-950">Ce merită să afli mai departe</h2>

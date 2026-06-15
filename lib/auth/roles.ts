@@ -2,21 +2,23 @@ import type { UserRole } from "@/types/domain";
 
 export const roles: Record<UserRole, { label: string; homePath: string; description: string }> = {
   elev: {
-    label: "Elev de liceu",
+    label: "Elev",
     homePath: "/dashboard/elev",
-    description: "Exploreaza directii, salveaza rezultate si cere sprijin."
+    description: "Explorezi direcții, salvezi rezultatul orientativ și pui întrebări către Student Mentors."
   },
   "student-mentor": {
     label: "Student Mentor",
     homePath: "/dashboard/student-mentor",
-    description: "Raspunde la intrebari si ajuta elevii sa inteleaga viata de student."
+    description: "Răspunzi din experiența ta personală și ajuți elevii să înțeleagă mai bine facultatea."
   },
   admin: {
     label: "Admin / moderator",
     homePath: "/dashboard/admin",
-    description: "Modereaza continut, intrebari si cereri de conversatie."
+    description: "Aprobi mentori, moderezi întrebări și răspunsuri și urmărești platforma-pilot."
   }
 };
+
+export const registerableRoles: UserRole[] = ["elev", "student-mentor"];
 
 export const protectedRoutes: Record<UserRole, string[]> = {
   elev: ["/dashboard/elev"],

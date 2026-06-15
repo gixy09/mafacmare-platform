@@ -2,8 +2,10 @@ import { ArrowRight, Compass, MessageCircle, Sparkles, Users } from "lucide-reac
 import { DirectionCard } from "@/components/direction-card";
 import { LinkButton } from "@/components/ui/button";
 import { InfoCard } from "@/components/ui/info-card";
+import { PilotNote } from "@/components/ui/pilot-note";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { directions } from "@/data/directions";
+import { pilotPlatformNote } from "@/data/platform";
 
 const painPoints = [
   "Sunt prea multe opțiuni și prea puțin context real despre ce înseamnă fiecare.",
@@ -66,6 +68,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <div className="mt-8 max-w-4xl">
+          <PilotNote copy={pilotPlatformNote} />
+        </div>
       </Section>
 
       <Section muted>
@@ -119,9 +124,7 @@ export default function HomePage() {
           <InfoCard>
             <Compass className="text-accent" aria-hidden="true" />
             <h2 className="mt-4 text-2xl font-bold text-slate-950">Vorbește cu cineva de la facultate</h2>
-            <p className="mt-3 text-slate-600">
-              Pentru întrebări despre programe, cursuri, admitere, proiecte, viața de student și atmosferă.
-            </p>
+            <p className="mt-3 text-slate-600">Pentru întrebări despre programe, cursuri, admitere, proiecte, viața de student și atmosferă.</p>
             <LinkButton href="/discuta-cu-cineva" className="mt-6">
               Vezi opțiunile
             </LinkButton>
